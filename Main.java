@@ -2,10 +2,10 @@ package pokemon;
 
 //para ejecutar el programa usen el comando java -cp compiledFiles pokemon.Main
 
-import pokemon.abstractTypesClasses.AbstractPokemon;
 import pokemon.pokemons.Bulbasaur;
 import pokemon.pokemons.Charmander;
 import pokemon.pokemons.Squirtle;
+import pokemon.ui.mainUI;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,9 +14,10 @@ import java.util.function.Function;
 public class Main {
 
     public static void main(String[] args) {
-        AbstractPokemon charmander = new Charmander();
-        AbstractPokemon bulbasour = new Bulbasaur();
-        AbstractPokemon squirtle = new Squirtle();
+        mainUI.main();
+        Charmander charmander = new Charmander();
+        Bulbasaur bulbasour = new Bulbasaur();
+        Squirtle squirtle = new Squirtle();
 
         Map<String, Function<Integer, Integer>> damageTargets = new HashMap<>();
         damageTargets.put("charmander", charmander::getHurt);
