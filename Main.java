@@ -5,7 +5,7 @@ package pokemon;
 import pokemon.pokemons.Bulbasaur;
 import pokemon.pokemons.Charmander;
 import pokemon.pokemons.Squirtle;
-import pokemon.ui.mainUI;
+import pokemon.ui.application.app;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ import java.util.function.Function;
 public class Main {
 
     public static void main(String[] args) {
-        mainUI.main();
+        app.main();
         Charmander charmander = new Charmander();
         Bulbasaur bulbasour = new Bulbasaur();
         Squirtle squirtle = new Squirtle();
