@@ -1,6 +1,6 @@
-package pokemon.pokemons;
+package pokemon.model.pokemon.instances;
 
-import pokemon.abstractTypesClasses.AbstractWaterPokemon;
+import pokemon.model.pokemon.abstractTypesClasses.AbstractWaterPokemon;
 
 public class Squirtle extends AbstractWaterPokemon {
 

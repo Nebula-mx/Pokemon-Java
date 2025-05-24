@@ -1,6 +1,6 @@
-package pokemon.pokemons;
+package pokemon.model.pokemon.instances;
 
-import pokemon.abstractTypesClasses.AbstractGrassPokemon;
+import pokemon.model.pokemon.abstractTypesClasses.AbstractGrassPokemon;
 
 public class Bulbasaur extends AbstractGrassPokemon {
 

@@ -1,4 +1,4 @@
-package pokemon.abstractTypesClasses;
+package pokemon.model.pokemon.abstractTypesClasses;
 
 public abstract class AbstractPokemon {
 

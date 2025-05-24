@@ -2,9 +2,9 @@ package pokemon;
 
 //para ejecutar el programa usen el comando java -cp compiledFiles pokemon.Main
 
-import pokemon.pokemons.Bulbasaur;
-import pokemon.pokemons.Charmander;
-import pokemon.pokemons.Squirtle;
+import pokemon.model.pokemon.instances.Bulbasaur;
+import pokemon.model.pokemon.instances.Charmander;
+import pokemon.model.pokemon.instances.Squirtle;
 import pokemon.ui.application.app;
 
 import java.util.HashMap;

@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Cylinder?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pokemon.ui.controllers.StartView">
+<AnchorPane fx:id="startPage" onKeyPressed="#gotoSelect_key" onMouseClicked="#gotoSelect" prefHeight="562.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pokemon.ui.controllers.StartView">
    <children>
-      <Pane layoutX="67.0" layoutY="70.0" prefHeight="268.0" prefWidth="459.0">
-         <children>
-            <Label layoutX="92.0" layoutY="121.0" prefHeight="36.0" prefWidth="221.0" text="AAAAAAAAAAAAAAAAAH" />
-            <Circle fill="#978fa65c" layoutX="373.0" layoutY="123.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-            <Cylinder height="100" layoutX="50.0" layoutY="48.0" radius="20" />
-         </children>
-      </Pane>
+      <ImageView fitHeight="723.0" fitWidth="939.0" preserveRatio="true">
+         <image>
+            <Image url="@media/Gold.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="153.0" fitWidth="419.0" layoutX="245.0" layoutY="109.0" preserveRatio="true" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="278.2727355957031" AnchorPane.topAnchor="109.0">
+         <image>
+            <Image url="@media/Pokémon_logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="240.0" layoutY="501.0" text="Pulse cualquier tecla para iniciar" textFill="#bcb7b1">
+         <font>
+            <Font name="NimbusSans-Regular" size="26.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

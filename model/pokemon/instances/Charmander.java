@@ -1,6 +1,6 @@
-package pokemon.pokemons;
+package pokemon.model.pokemon.instances;
 
-import pokemon.abstractTypesClasses.AbstractFirePokemon;
+import pokemon.model.pokemon.abstractTypesClasses.AbstractFirePokemon;
 
 public class Charmander extends AbstractFirePokemon {
 

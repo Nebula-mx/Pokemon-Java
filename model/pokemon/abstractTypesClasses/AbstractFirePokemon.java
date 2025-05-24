@@ -1,6 +1,6 @@
-package pokemon.abstractTypesClasses;
+package pokemon.model.pokemon.abstractTypesClasses;
 
-import pokemon.abstractTypes.fire;
+import pokemon.model.pokemon.abstractTypes.fire;
 
 public abstract class AbstractFirePokemon
     extends AbstractPokemon

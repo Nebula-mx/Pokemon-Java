@@ -1,9 +1,9 @@
-package pokemon.abstractTypesClasses;
+package pokemon.model.pokemon.abstractTypesClasses;
 
-import pokemon.abstractTypes.water;
+import pokemon.model.pokemon.abstractTypes.water;
 
 public abstract class AbstractWaterPokemon
-    extends AbstractPokemon
+    extends pokemon.model.pokemon.abstractTypesClasses.AbstractPokemon
     implements water {
 
     public AbstractWaterPokemon(String name) {

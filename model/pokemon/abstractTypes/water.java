@@ -1,4 +1,4 @@
-package pokemon.abstractTypes;
+package pokemon.model.pokemon.abstractTypes;
 
 public interface water {
     int pistolaAgua();

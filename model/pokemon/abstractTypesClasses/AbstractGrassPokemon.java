@@ -1,6 +1,6 @@
-package pokemon.abstractTypesClasses;
+package pokemon.model.pokemon.abstractTypesClasses;
 
-import pokemon.abstractTypes.grass;
+import pokemon.model.pokemon.abstractTypes.grass;
 
 public abstract class AbstractGrassPokemon
     extends AbstractPokemon
