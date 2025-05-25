@@ -1,0 +1,24 @@
+package pokemon.controller;
+
+import pokemon.model.pokemon.abstractTypesClasses.AbstractPokemon;
+
+public class Batalla {
+    public static void iniciar(AbstractPokemon jugador, AbstractPokemon rival) {
+        System.out.println("¡Combate iniciado!");
+
+        while (jugador.getHealth() > 0 && rival.getHealth() > 0) {
+            // Turno jugador
+            System.out.println("\n--- Tu turno ---");
+            jugador.atacar(jugador.getAtaques().get(0), rival); // Ataque básico
+            if (rival.getHealth() <= 0) {
+                System.out.println("¡Ganaste!");
+                break;
+            }
+
+            // Turno rival (CPU)
+            System.out.println("\n--- Turno rival ---");
+            int ataqueRandom = (int) (Math.random() * rival.getAtaques().size());
+            rival.atacar(rival.getAtaques().get(ataqueRandom), jugador);
+        }
+    }
+}
