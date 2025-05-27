@@ -11,18 +11,15 @@ import java.io.IOException;
 
 public class
 app extends Application {
-    private Stage stageWindow;
     @Override
+    //este metodo solo se encarga de hacer que aparezca la ventana del juego con una resolucion de 1295 x 969, si, esta chistosa la resolucion xd
+    //tambien se le da el titulo a la ventana y se carga la vista, no es necesario cambiar nada aqui.
     public void start(Stage primaryStage) throws IOException {
-        this.stageWindow = primaryStage;
+        Parent root = FXMLLoader.load(getClass().getResource("/com/pokemon/startView.fxml")); //define la ruta de la vista principal
 
-        Parent root = FXMLLoader.load(
-                getClass().getResource("/com/pokemon/startView.fxml")
-        );
-
-        Scene scene = new Scene(root);
-        primaryStage.setTitle("test de coso jfx");
-        primaryStage.setScene(scene);
+        Scene scene = new Scene(root, 1295, 969); //define la ventana y el contenido
+        primaryStage.setTitle("Pokemon java edition"); //le da titulo a la ventana
+        primaryStage.setScene(scene); // pone la escena e inicia la ventana.
         primaryStage.show();
     }
 

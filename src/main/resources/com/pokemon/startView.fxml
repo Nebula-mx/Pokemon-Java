@@ -8,7 +8,7 @@
 
 <AnchorPane fx:id="startPage" onKeyPressed="#gotoSelect_key" onMouseClicked="#gotoSelect" prefHeight="720.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pokemon.controllers.StartView">
    <children>
-      <ImageView fitHeight="902.0" fitWidth="1235.0" preserveRatio="true">
+      <ImageView fitHeight="969.0" fitWidth="1295.0" preserveRatio="true">
          <image>
             <Image url="@media/pictures/startView/Gold.png" />
          </image>
