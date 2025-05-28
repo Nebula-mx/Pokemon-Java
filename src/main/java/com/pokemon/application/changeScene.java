@@ -20,7 +20,7 @@ public class changeScene {
             // incluyendo la entencion, por ejemplo startView.fxml.
             System.out.println(scenePath);
             Parent root = FXMLLoader.load(getClass().getResource(scenePath));
-            Scene scene = new Scene(root, 1295, 969);
+            Scene scene = new Scene(root);
             stageWindow.setScene(scene);
             stageWindow.show();
         } catch (IOException e){
