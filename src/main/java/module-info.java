@@ -6,4 +6,5 @@ module com.pokemon {
     opens com.pokemon.application to javafx.fxml;
     opens com.pokemon.controllers to javafx.fxml;
     exports com.pokemon.application;
+    exports com.pokemon.utils;
 }
