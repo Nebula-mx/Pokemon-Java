@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="902.0" maxWidth="1206.0" minHeight="902.0" minWidth="1206.0" prefHeight="902.0" prefWidth="1206.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Text fill="WHITE" layoutX="398.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selección de personaje" textAlignment="CENTER" wrappingWidth="410.11083984375">
+            <font>
+                <Font size="47.0" />
+            </font>
+        </Text>
+        <Label layoutX="580.0" layoutY="610.0" text="Charmander" textFill="WHITE">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="422.0" layoutY="610.0" text="Squirtle" textFill="WHITE">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="794.0" layoutY="610.0" text="Bulbasour" textFill="WHITE">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="283.0" layoutY="610.0" text="Vulpix" textFill="WHITE">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="979.0" layoutY="610.0" text="Poliwag" textFill="WHITE">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="135.0" layoutY="610.0" text="Oddish" textFill="WHITE">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
