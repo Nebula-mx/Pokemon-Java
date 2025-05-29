@@ -31,12 +31,10 @@ public class spritesLoader {
 
         return sprites;
     }
-    public Timeline createAnimation(String nombre, String nombreEspecifico, String tipo, int frames) {
+    public Timeline createAnimation(ImageView imageView, String nombre, String nombreEspecifico, String tipo, int frames) {
         List<Image> sprites = new ArrayList<>();
-        // Usa los valores
         String RUTA_FOTOGRAMAS = "/com/pokemon/media/pictures/sprites/" + tipo + "/" + nombre + "/sprite" + nombreEspecifico + "/" + nombreEspecifico;
 
-        ImageView imageView = new ImageView();
         Timeline timeline = new Timeline();
 
         for (int i = 1; i <= frames; i++) {
@@ -45,7 +43,7 @@ public class spritesLoader {
 
             if (urlImagen != null) {
                 Image imagen = new Image(urlImagen.toExternalForm());
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(VELOCIDAD_MS * (i + 1)), e -> imageView.setImage(imagen));
+                KeyFrame keyFrame = new KeyFrame(Duration.millis(VELOCIDAD_MS * i), e -> imageView.setImage(imagen));
                 timeline.getKeyFrames().add(keyFrame);
             } else {
                 System.out.println("Archivo no encontrado: " + rutaImagen);

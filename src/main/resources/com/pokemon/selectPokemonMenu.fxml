@@ -1,47 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
+<VBox fx:id="container" alignment="CENTER" prefHeight="969" prefWidth="1295" spacing="50" style="-: url(&quot;com/pokemon/media/pictures/selectPokemonMenu/selectMenuBg.jpg&quot;);" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pokemon.controllers.selectPokemonMenu">
 
-<AnchorPane maxHeight="902.0" maxWidth="1206.0" minHeight="902.0" minWidth="1206.0" prefHeight="902.0" prefWidth="1206.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Text fill="WHITE" layoutX="398.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selección de personaje" textAlignment="CENTER" wrappingWidth="410.11083984375">
-         <font>
-            <Font size="47.0" />
-         </font>
-      </Text>
-      <Label layoutX="580.0" layoutY="610.0" text="Charmander" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="422.0" layoutY="610.0" text="Squirtle" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="794.0" layoutY="610.0" text="Bulbasour" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="283.0" layoutY="610.0" text="Vulpix" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="979.0" layoutY="610.0" text="Poliwag" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="135.0" layoutY="610.0" text="Oddish" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
+   <!-- Texto superior -->
+   <Label alignment="CENTER" text="Seleccione su Pokémon" textFill="#f8f8f8">
+      <font>
+         <Font name="System Bold" size="60" />
+      </font>
+   </Label>
+
+   <!-- Nombres + imágenes -->
+   <HBox alignment="CENTER" spacing="80">
+
+      <!-- Charmander -->
+      <VBox fx:id="contenedorCharmander" alignment="CENTER" focusTraversable="true" onMouseEntered="#onSeleccionarCharmander" onMouseExited="#stopAnimation" spacing="10" style="-fx-cursor: hand;">
+         <ImageView fx:id="charmanderImage" fitHeight="200" fitWidth="200" preserveRatio="true" />
+         <Label style="-fx-font-size: 32px;" text="Charmander" textFill="#f8f8f8" />
+      </VBox>
+
+      <!-- Squirtle -->
+      <VBox fx:id="contenedorSquirtle" alignment="CENTER" focusTraversable="true" onMouseEntered="#onSeleccionarSquirtle" onMouseExited="#stopAnimation" spacing="10" style="-fx-cursor: hand;">
+         <ImageView fx:id="squirtleImage" fitHeight="200" fitWidth="200" preserveRatio="true" />
+         <Label style="-fx-font-size: 32px;" text="Squirtle" textFill="#f8f8f8" />
+      </VBox>
+
+      <!-- Bulbasaur -->
+      <VBox fx:id="contenedorBulbasaur" alignment="CENTER" focusTraversable="true" onMouseEntered="#onSeleccionarBulbasaur" onMouseExited="#stopAnimation" spacing="10" style="-fx-cursor: hand;">
+         <ImageView fx:id="bulbasaurImage" fitHeight="200" fitWidth="200" preserveRatio="true" />
+         <Label style="-fx-font-size: 32px;" text="Bulbasaur" textFill="#f8f8f8" />
+      </VBox>
+
+      <!-- Arcaine -->
+      <VBox fx:id="contenedorArcaine" alignment="CENTER" focusTraversable="true" onMouseEntered="#onSeleccionarArcaine" onMouseExited="#stopAnimation" spacing="10" style="-fx-cursor: hand;">
+         <ImageView fx:id="arcaineImage" fitHeight="200" fitWidth="200" preserveRatio="true" />
+         <Label style="-fx-font-size: 32px;" text="Arcaine" textFill="#f8f8f8" />
+      </VBox>
+
+      <!-- Poliwag -->
+      <VBox fx:id="contenedorPoliwag" alignment="CENTER" focusTraversable="true" onMouseEntered="#onSeleccionarPoliwag" onMouseExited="#stopAnimation" spacing="10" style="-fx-cursor: hand;">
+         <ImageView fx:id="poliwagImage" fitHeight="200" fitWidth="200" preserveRatio="true" />
+         <Label style="-fx-font-size: 32px;" text="Poliwag" textFill="#f8f8f8" />
+      </VBox>
+
+      <!-- Oddish -->
+      <VBox fx:id="contenedorOddish" alignment="CENTER" focusTraversable="true" onMouseEntered="#onSeleccionarOddish" onMouseExited="#stopAnimation" spacing="10" style="-fx-cursor: hand;">
+         <ImageView fx:id="oddishImage" fitHeight="200" fitWidth="200" preserveRatio="true" />
+         <Label style="-fx-font-size: 32px;" text="Oddish" textFill="#f8f8f8" />
+      </VBox>
+
+   </HBox>
+
+</VBox>

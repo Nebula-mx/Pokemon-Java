@@ -18,6 +18,7 @@ import java.io.IOException;
 import static java.lang.System.out;
 
 public class StartView {
+    private Clip clip;
 
     @FXML
     private AnchorPane startPage;
@@ -28,7 +29,7 @@ public class StartView {
 
             AudioInputStream aus = AudioSystem.getAudioInputStream(new File(fileURL).getAbsoluteFile());
 
-            Clip clip = AudioSystem.getClip();
+            clip = AudioSystem.getClip();
             clip.open(aus);
             clip.start();
 
@@ -50,6 +51,7 @@ public class StartView {
         playStartAudio();
     }
     public void goToSelectMenu(Event event){
+        clip.close();
         Node node = (Node) event.getSource();
         String sceneName = (String) node.getProperties().get("goToPage");
         try {

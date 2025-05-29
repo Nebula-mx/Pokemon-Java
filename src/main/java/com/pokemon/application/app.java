@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +18,7 @@ app extends Application {
 
         Scene scene = new Scene(root, 1295, 969); //define la ventana y el contenido
         primaryStage.setTitle("Pokemon java edition"); //le da titulo a la ventana
+        primaryStage.setResizable(false);
         primaryStage.setScene(scene); // pone la escena e inicia la ventana.
         primaryStage.show();
     }
