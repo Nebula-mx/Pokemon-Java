@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.pokemon.controllers.Batalla">
+    <ImageView fx:id="playerSprite" fitWidth="200" fitHeight="200" layoutX="50" layoutY="250"/>
+    <ImageView fx:id="cpuSprite" fitWidth="200" fitHeight="200" layoutX="500" layoutY="250"/>
+
+    <Button fx:id="attackButton" layoutX="50" layoutY="500" text="Atacar"/>
+    <Button fx:id="evolveButton" layoutX="200" layoutY="500" text="Evolucionar"/>
+
+    <Text fx:id="battleLog" layoutX="50" layoutY="50" wrappingWidth="600"/>
+</AnchorPane>
