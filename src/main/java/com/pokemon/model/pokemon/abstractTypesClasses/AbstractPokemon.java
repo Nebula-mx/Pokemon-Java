@@ -3,15 +3,20 @@ package com.pokemon.model.pokemon.abstractTypesClasses;
 public abstract class AbstractPokemon {
 
     private String name;
+
     private int level;
     private int health;
     public String[] movements;
     public String type;
     
-    // Campos para evoluciones
+    // Datos para evoluciones
     private String nextEvolution;
     private int evolutionLevel;
     private boolean hasEvolved;
+
+    public String getName() {
+        return name;
+    }
 
     public AbstractPokemon(String name, String type, String[] movements) {
         this.name = name;

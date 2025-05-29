@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
 public class changeScene {
 
     //este metodo se encarga de cambiar entre escenas, para ello desde el controlador de la vista origen

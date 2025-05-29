@@ -2,11 +2,19 @@ package com.pokemon.controllers;
 
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
+
+import com.pokemon.application.changeScene;
+import com.pokemon.model.playerData;
+import com.pokemon.model.pokemon.instances.Bulbasaur;
+import com.pokemon.model.pokemon.instances.Charmander;
+import com.pokemon.model.pokemon.instances.Squirtle;
 import com.pokemon.utils.spritesLoader;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import javax.sound.sampled.*;
 import java.io.File;
@@ -19,6 +27,23 @@ public class selectPokemonMenu {
     @FXML
     private VBox container;
     private Timeline currentAnimation;
+    @FXML
+    private VBox contenedorArcaine;
+
+    @FXML
+    private VBox contenedorBulbasaur;
+
+    @FXML
+    private VBox contenedorCharmander;
+
+    @FXML
+    private VBox contenedorOddish;
+
+    @FXML
+    private VBox contenedorPoliwag;
+
+    @FXML
+    private VBox contenedorSquirtle;
     @FXML
     private ImageView bulbasaurImage;
 
@@ -55,8 +80,21 @@ public class selectPokemonMenu {
 
     @FXML
     public void initialize(){
-        System.out.println(getClass().getResource("/com/pokemon/media/pictures/selectPokemonMenu/selectMenuBg.jpg"));
         playStartAudio();
+
+        contenedorArcaine.getProperties().put("pokemonName", "Arcaine");
+        contenedorBulbasaur.getProperties().put("pokemonName", "Bulbasaur");
+        contenedorCharmander.getProperties().put("pokemonName", "Charmander");
+        contenedorOddish.getProperties().put("pokemonName", "Oddish");
+        contenedorPoliwag.getProperties().put("pokemonName", "Poliwag");
+        contenedorSquirtle.getProperties().put("pokemonName", "Squirtle");
+        
+        contenedorArcaine.getProperties().put("goToPage", "Batalla.fxml");
+        contenedorBulbasaur.getProperties().put("goToPage", "Batalla.fxml");
+        contenedorCharmander.getProperties().put("goToPage", "Batalla.fxml");
+        contenedorOddish.getProperties().put("goToPage", "Batalla.fxml");
+        contenedorPoliwag.getProperties().put("goToPage", "Batalla.fxml");
+        contenedorSquirtle.getProperties().put("goToPage", "Batalla.fxml");
 
         URL imageUrl = getClass().getResource("/com/pokemon/media/pictures/selectPokemonMenu/selectMenuBg.jpg");
         container.setStyle(
@@ -65,6 +103,7 @@ public class selectPokemonMenu {
                         "-fx-background-position: center center;" +
                         "-fx-background-size: cover;"
         );
+
         bulbasaurImage.setImage(SpriteLoader.getSrites("Bulbasaur", "Bulbasaur", "planta", 3).get(0));
         charmanderImage.setImage(SpriteLoader.getSrites("Charmander", "Charmander", "fuego", 3).get(0));
         oddishImage.setImage(SpriteLoader.getSrites("Oddish", "Oddish", "planta", 3).get(0));
@@ -107,6 +146,35 @@ public class selectPokemonMenu {
     @FXML
     void onSeleccionarSquirtle(MouseEvent event) {
         animateElement(squirtleImage, "Squirtle", "Squirtle", "agua", 4);
+    }
+    @FXML
+    void selectPokemon(MouseEvent event) {
+        playerData currentUser = playerData.getInstance();
+        Node node = (Node) event.getSource();
+        String selectedPokemon = (String) node.getProperties().get("pokemonName");
+        System.out.println(selectedPokemon);
+        switch (selectedPokemon) {
+            case "Bulbasaur":
+                currentUser.setUserPokemon(new Bulbasaur());
+                break;
+            case "Charmander":
+                currentUser.setUserPokemon(new Charmander());
+                break;
+            case "Squirtle":
+                currentUser.setUserPokemon(new Squirtle());
+            default:
+                break;
+        }
+
+        clip.close();
+        String sceneName = (String) node.getProperties().get("goToPage");
+        try {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            changeScene changer = new changeScene();
+            changer.goTo(sceneName, stage);
+        } catch (IOException e){
+            System.out.println(e);
+        }
     }
     @FXML
     void stopAnimation(MouseEvent event) {

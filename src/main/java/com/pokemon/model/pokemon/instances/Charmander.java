@@ -1,12 +1,10 @@
 package com.pokemon.model.pokemon.instances;
-
-import com.pokemon.model.pokemon.abstractTypes.fire;
 import com.pokemon.model.pokemon.abstractTypesClasses.AbstractFirePokemon;
 
-public class Charmander extends AbstractFirePokemon implements fire {
-
+public class Charmander extends AbstractFirePokemon {
+    private int id = 20;
     public Charmander() {
-        super("Charmander", "FUEGO", new String[]{"Lanzallamas", "Arañazo", "Garra Dragón", "Ascuas"});
+        super("Charmander", "fuego", new String[]{"Lanzallamas", "Arañazo", "Garra Dragón", "Ascuas"});
         setEvolution("Charmeleon", 5);
     }
 

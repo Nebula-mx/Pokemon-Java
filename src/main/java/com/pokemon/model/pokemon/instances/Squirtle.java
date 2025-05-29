@@ -4,10 +4,10 @@ import com.pokemon.model.pokemon.abstractTypes.water;
 import com.pokemon.model.pokemon.abstractTypesClasses.AbstractWaterPokemon;
 
 public class Squirtle extends AbstractWaterPokemon implements water{
-
+    private int id = 30;
     public Squirtle() {
-        super("Squirtle", "AGUA", new String[]{"Pistola Agua", "Burbuja", "Cabezazo", "Refugio"});
-        setEvolution("Wartortle", 5);  // Evoluciona a nivel 5
+        super("Squirtle", "agua", new String[]{"Pistola Agua", "Burbuja", "Cabezazo", "Refugio"});
+        setEvolution("Wartortle", 5);
     }
 
     @Override
