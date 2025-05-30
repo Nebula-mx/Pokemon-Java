@@ -1,7 +1,5 @@
 package com.pokemon.model.pokemon.abstractTypesClasses;
 
-import com.pokemon.model.pokemon.abstractTypes.water;
-
 public abstract class AbstractWaterPokemon
     extends AbstractPokemon {
 

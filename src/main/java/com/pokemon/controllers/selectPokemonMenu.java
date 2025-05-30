@@ -7,8 +7,11 @@ import javafx.scene.image.ImageView;
 
 import com.pokemon.application.changeScene;
 import com.pokemon.model.playerData;
+import com.pokemon.model.pokemon.instances.Arcaine;
 import com.pokemon.model.pokemon.instances.Bulbasaur;
 import com.pokemon.model.pokemon.instances.Charmander;
+import com.pokemon.model.pokemon.instances.Oddish;
+import com.pokemon.model.pokemon.instances.Poliwag;
 import com.pokemon.model.pokemon.instances.Squirtle;
 import com.pokemon.utils.spritesLoader;
 import javafx.scene.input.KeyEvent;
@@ -162,6 +165,16 @@ public class selectPokemonMenu {
                 break;
             case "Squirtle":
                 currentUser.setUserPokemon(new Squirtle());
+                break;
+            case "Oddish":
+                currentUser.setUserPokemon(new Oddish());
+                break;
+            case "Poliwag":
+                currentUser.setUserPokemon(new Poliwag());
+                break;
+            case "Arcaine":
+                currentUser.setUserPokemon(new Arcaine());
+                break;
             default:
                 break;
         }
