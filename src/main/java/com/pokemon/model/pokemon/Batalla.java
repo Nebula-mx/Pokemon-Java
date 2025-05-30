@@ -100,4 +100,5 @@ public class Batalla {
     public ImageView getCpuSprite() {
         return cpuSprite;
     }
+
 }

@@ -36,7 +36,7 @@ public abstract class AbstractPokemon {
     }
 
     public abstract int firstMovement();
-    public abstract int seccondMovement();
+    public abstract int secondMovement();
     public abstract int thirdMovement();
     public abstract int fourthMovement();
 
@@ -49,7 +49,7 @@ public abstract class AbstractPokemon {
         int result = -1;
         switch(movementId) {
             case 1: result = firstMovement(); break;
-            case 2: result = seccondMovement(); break;
+            case 2: result = secondMovement(); break;
             case 3: result = thirdMovement(); break;
             case 4: result = fourthMovement(); break;
         }
