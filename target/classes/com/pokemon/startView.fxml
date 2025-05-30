@@ -6,19 +6,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="startPage" onKeyPressed="#gotoSelect_key" onMouseClicked="#gotoSelect" prefHeight="720.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pokemon.controllers.StartView">
+<AnchorPane fx:id="startPage" onKeyPressed="#gotoSelect" onMouseClicked="#gotoSelect" prefHeight="720.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pokemon.controllers.StartView">
    <children>
-      <ImageView fitHeight="969.0" fitWidth="1295.0" preserveRatio="true">
+      <ImageView fx:id="backgroundImage" fitHeight="969.0" fitWidth="1295.0" preserveRatio="false">
          <image>
             <Image url="@media/pictures/startView/Gold.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="153.0" fitWidth="419.0" layoutX="404.0" layoutY="240.0" preserveRatio="true" AnchorPane.bottomAnchor="509.0" AnchorPane.leftAnchor="404.0" AnchorPane.rightAnchor="385.7727355957031" AnchorPane.topAnchor="240.0">
+      <ImageView fitHeight="153.0" fitWidth="419.0" layoutX="440.0" layoutY="241.0" preserveRatio="true" AnchorPane.bottomAnchor="575.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="439.2727355957031" AnchorPane.topAnchor="241.0">
          <image>
             <Image url="@media/pictures/startView/Pokémon_logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="399.0" layoutY="691.0" text="Pulse cualquier tecla para iniciar" textFill="#bcb7b1">
+      <Label layoutX="435.0" layoutY="735.0" text="Pulse cualquier tecla para iniciar" textFill="#bcb7b1">
          <font>
             <Font name="NimbusSans-Regular" size="26.0" />
          </font>

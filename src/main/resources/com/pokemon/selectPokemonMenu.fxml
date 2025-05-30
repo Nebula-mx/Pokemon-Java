@@ -20,37 +20,37 @@
 
       <!-- Charmander -->
       <VBox fx:id="contenedorCharmander" alignment="CENTER" focusTraversable="true" onMouseClicked="#selectPokemon" onMouseEntered="#onSeleccionarCharmander" onMouseExited="#stopAnimation" spacing="10" style="-fx-cursor: hand;">
-         <ImageView fx:id="charmanderImage" fitHeight="200" fitWidth="200" preserveRatio="true" />
+         <ImageView fx:id="charmanderImage" fitHeight="64" fitWidth="64" preserveRatio="true" />
          <Label style="-fx-font-size: 32px;" text="Charmander" textFill="#f8f8f8" />
       </VBox>
 
       <!-- Squirtle -->
       <VBox fx:id="contenedorSquirtle" alignment="CENTER" focusTraversable="true" onMouseClicked="#selectPokemon" onMouseEntered="#onSeleccionarSquirtle" onMouseExited="#stopAnimation" spacing="10" style="-fx-cursor: hand;">
-         <ImageView fx:id="squirtleImage" fitHeight="200" fitWidth="200" preserveRatio="true" />
+         <ImageView fx:id="squirtleImage" fitHeight="64" fitWidth="64" preserveRatio="true" />
          <Label style="-fx-font-size: 32px;" text="Squirtle" textFill="#f8f8f8" />
       </VBox>
 
       <!-- Bulbasaur -->
       <VBox fx:id="contenedorBulbasaur" alignment="CENTER" focusTraversable="true" onMouseClicked="#selectPokemon" onMouseEntered="#onSeleccionarBulbasaur" onMouseExited="#stopAnimation" spacing="10" style="-fx-cursor: hand;">
-         <ImageView fx:id="bulbasaurImage" fitHeight="200" fitWidth="200" preserveRatio="true" />
+         <ImageView fx:id="bulbasaurImage" fitHeight="64" fitWidth="64" preserveRatio="true" />
          <Label style="-fx-font-size: 32px;" text="Bulbasaur" textFill="#f8f8f8" />
       </VBox>
 
       <!-- Arcaine -->
       <VBox fx:id="contenedorArcaine" alignment="CENTER" focusTraversable="true" onMouseClicked="#selectPokemon" onMouseEntered="#onSeleccionarArcaine" onMouseExited="#stopAnimation" spacing="10" style="-fx-cursor: hand;">
-         <ImageView fx:id="arcaineImage" fitHeight="200" fitWidth="200" preserveRatio="true" />
+         <ImageView fx:id="arcaineImage" fitHeight="64" fitWidth="64" preserveRatio="true" />
          <Label style="-fx-font-size: 32px;" text="Arcaine" textFill="#f8f8f8" />
       </VBox>
 
       <!-- Poliwag -->
       <VBox fx:id="contenedorPoliwag" alignment="CENTER" focusTraversable="true" onMouseClicked="#selectPokemon" onMouseEntered="#onSeleccionarPoliwag" onMouseExited="#stopAnimation" spacing="10" style="-fx-cursor: hand;">
-         <ImageView fx:id="poliwagImage" fitHeight="200" fitWidth="200" preserveRatio="true" />
+         <ImageView fx:id="poliwagImage" fitHeight="64" fitWidth="64" preserveRatio="true" />
          <Label style="-fx-font-size: 32px;" text="Poliwag" textFill="#f8f8f8" />
       </VBox>
 
       <!-- Oddish -->
       <VBox fx:id="contenedorOddish" alignment="CENTER" focusTraversable="true" onMouseClicked="#selectPokemon" onMouseEntered="#onSeleccionarOddish" onMouseExited="#stopAnimation" spacing="10" style="-fx-cursor: hand;">
-         <ImageView fx:id="oddishImage" fitHeight="200" fitWidth="200" preserveRatio="true" />
+         <ImageView fx:id="oddishImage" fitHeight="64" fitWidth="64" preserveRatio="true" />
          <Label style="-fx-font-size: 32px;" text="Oddish" textFill="#f8f8f8" />
       </VBox>
 

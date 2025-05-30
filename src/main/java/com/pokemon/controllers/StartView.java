@@ -3,9 +3,15 @@ package com.pokemon.controllers;
 import com.pokemon.application.app;
 
 import com.pokemon.application.changeScene;
+import com.pokemon.utils.spritesLoader;
+
+import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -14,14 +20,15 @@ import javafx.stage.Stage;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
-
-import static java.lang.System.out;
+import java.util.List;
 
 public class StartView {
     private Clip clip;
 
     @FXML
     private AnchorPane startPage;
+    @FXML
+    private ImageView backgroundImage;
 
     private void playStartAudio(){
         try {
@@ -40,7 +47,13 @@ public class StartView {
 
     @FXML
     public void initialize(){
+        Platform.runLater(() -> startPage.requestFocus());
         startPage.getProperties().put("goToPage", "selectPokemonMenu.fxml");
+        spritesLoader loader = new spritesLoader();
+        Timeline sprites = loader.createAnimation(backgroundImage, "background", "Bg", "mainMenu", 62);
+        sprites.play();
+
+
         //la linea de arriba, usa el elmento startPage del documento fxml y le pone la propiedad goToPage
         //y a esa propiedad le pone el nombre de la vista a la que va a ir, en este caso selectPokemonMenu.fxml.
 
@@ -63,11 +76,6 @@ public class StartView {
         }
     }
     @FXML
-    void gotoSelect(MouseEvent event) {goToSelectMenu(event);}
-    @FXML
-    void gotoSelect_key(KeyEvent event) {
-        out.println(event.getEventType().getName());
-        goToSelectMenu(event);
-    }
+    void gotoSelect(Event event) {goToSelectMenu(event);}
 
 }
