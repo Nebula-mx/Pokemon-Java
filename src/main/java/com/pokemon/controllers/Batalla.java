@@ -2,6 +2,7 @@ package com.pokemon.controllers;
 
 import com.pokemon.model.playerData;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.Scene;
@@ -19,6 +20,9 @@ public class Batalla {
           "/com/pokemon/media/pictures/BatallaView/fondoBatalla2.png",
           "/com/pokemon/media/pictures/BatallaView/fondoBatalla3.png"
   };
+  @FXML
+  private Button firstMovement, seccondMovement, thirdMovement, fourthMovement;
+
 
   @FXML
   public void initialize() {
