@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -13,22 +12,20 @@
     <!-- Imagen de fondo -->
     <ImageView fx:id="backgroundImage" preserveRatio="false" fitHeight="969.0" fitWidth="1295.0"/>
 
-    <!-- Sprites de los Pokémon -->
-    <ImageView fx:id="charmander" fitWidth="200" fitHeight="200" layoutX="50" layoutY="250"/>
-    <ImageView fx:id="cpuSprite" fitWidth="200" fitHeight="200" layoutX="500" layoutY="250"/>
-
+   
     <!-- Registro de la batalla -->
     <Text fx:id="battleLog" layoutX="50" layoutY="50" wrappingWidth="600"/>
 
-    <!-- Contenedor para los movimientos -->
+    <!-- Contenedor para los poderes -->
     <HBox fx:id="buttonContainer" spacing="100" layoutX="200" layoutY="750">
-        <Button fx:id="playerData" style="-fx-font-size: 20px; -fx-pref-width: 150px; -fx-pref-height: 50px;"/>
-        <Button fx:id="playerData" style="-fx-font-size: 20px; -fx-pref-width: 150px; -fx-pref-height: 50px;"/>
-        <Button fx:id="playerData" style="-fx-font-size: 20px; -fx-pref-width: 150px; -fx-pref-height: 50px;"/>
-        <Button fx:id="playerData" style="-fx-font-size: 20px; -fx-pref-width: 150px; -fx-pref-height: 50px;"/>
+        <Button fx:id="firstMovement" text="Movimiento 1" onAction="#handleFirstMove"
+                style="-fx-font-size: 20px; -fx-pref-width: 150px; -fx-pref-height: 50px;"/>
+        <Button fx:id="secondMovement" text="Movimiento 2" onAction="#handleSecondMove"
+                style="-fx-font-size: 20px; -fx-pref-width: 150px; -fx-pref-height: 50px;"/>
+        <Button fx:id="thirdMovement" text="Movimiento 3" onAction="#handleThirdMove"
+                style="-fx-font-size: 20px; -fx-pref-width: 150px; -fx-pref-height: 50px;"/>
+        <Button fx:id="fourthMovement" text="Movimiento 4" onAction="#handleFourthMove"
+                style="-fx-font-size: 20px; -fx-pref-width: 150px; -fx-pref-height: 50px;"/>
     </HBox>
-
-    <!-- Botón de evolución separado de los ataques -->
-    <Button fx:id="evolveButton" layoutX="600" layoutY="800" text="Evolucionar" style="-fx-font-size: 20px; -fx-pref-width: 180px; -fx-pref-height: 60px;"/>
-
+    
 </AnchorPane>
