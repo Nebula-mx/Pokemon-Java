@@ -1,6 +1,8 @@
 package com.pokemon.controllers;
 
 import javafx.animation.Timeline;
+import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
@@ -16,6 +18,7 @@ import com.pokemon.model.pokemon.instances.Squirtle;
 import com.pokemon.utils.spritesLoader;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -23,10 +26,12 @@ import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 public class selectPokemonMenu {
     private final spritesLoader SpriteLoader = new spritesLoader();
     private Clip clip;
+    private int selectId = 0;
     @FXML
     private VBox container;
     private Timeline currentAnimation;
@@ -91,6 +96,13 @@ public class selectPokemonMenu {
         contenedorOddish.getProperties().put("pokemonName", "Oddish");
         contenedorPoliwag.getProperties().put("pokemonName", "Poliwag");
         contenedorSquirtle.getProperties().put("pokemonName", "Squirtle");
+
+        contenedorCharmander.getProperties().put("selectId", "0");
+        contenedorSquirtle.getProperties().put("selectId", "1");
+        contenedorBulbasaur.getProperties().put("selectId", "2");
+        contenedorArcaine.getProperties().put("selectId", "3");
+        contenedorPoliwag.getProperties().put("selectId", "4");
+        contenedorOddish.getProperties().put("selectId", "5");
         
         contenedorArcaine.getProperties().put("goToPage", "Batalla.fxml");
         contenedorBulbasaur.getProperties().put("goToPage", "Batalla.fxml");
@@ -113,6 +125,8 @@ public class selectPokemonMenu {
         poliwagImage.setImage(SpriteLoader.getSrites("Poliwag", "Poliwag", "agua", 3).get(0));
         squirtleImage.setImage(SpriteLoader.getSrites("Squirtle", "Squirtle", "agua", 3).get(0));
         arcaineImage.setImage(SpriteLoader.getSrites("Arcaine", "Arcaine", "fuego", 3).get(0));
+
+        startAnimation("Charmander");
     }
 
     private void animateElement(ImageView imagen, String nombre, String especifico, String tipo, int frames) {
@@ -122,38 +136,38 @@ public class selectPokemonMenu {
     }
     
     @FXML
-    void onSeleccionarArcaine(MouseEvent event) {
-        animateElement(arcaineImage, "Arcaine", "Arcaine", "fuego", 4);
+    void onSeleccionarArcaine(Event event) {
+        startAnimation("Arcaine");
     }
 
     @FXML
-    void onSeleccionarBulbasaur(MouseEvent event) {
-        animateElement(bulbasaurImage, "Bulbasaur", "Bulbasaur", "planta", 3);
+    void onSeleccionarBulbasaur(Event event) {
+        startAnimation("Bulbasaur");
     }
 
     @FXML
-    void onSeleccionarCharmander(MouseEvent event) {
-        animateElement(charmanderImage, "Charmander", "Charmander", "fuego", 4);
+    void onSeleccionarCharmander(Event event) {
+        startAnimation("Charmander");
     }
 
     @FXML
-    void onSeleccionarOddish(MouseEvent event) {
-        animateElement(oddishImage, "Oddish", "Oddish", "planta", 5);
+    void onSeleccionarOddish(Event event) {
+        startAnimation("Oddish");
     }
 
     @FXML
-    void onSeleccionarPoliwag(MouseEvent event) {
-        animateElement(poliwagImage, "Poliwag", "Poliwag", "agua", 4);
+    void onSeleccionarPoliwag(Event event) {
+        startAnimation("Poliwag");
     }
 
     @FXML
-    void onSeleccionarSquirtle(MouseEvent event) {
-        animateElement(squirtleImage, "Squirtle", "Squirtle", "agua", 4);
+    void onSeleccionarSquirtle(Event event) {
+        startAnimation("Squirtle");
     }
     @FXML
-    void selectPokemon(MouseEvent event) {
-        playerData currentUser = playerData.getInstance();
+    void selectPokemon(Event event) {
         Node node = (Node) event.getSource();
+        playerData currentUser = playerData.getInstance();
         String selectedPokemon = (String) node.getProperties().get("pokemonName");
         System.out.println(selectedPokemon);
         switch (selectedPokemon) {
@@ -193,5 +207,97 @@ public class selectPokemonMenu {
     void stopAnimation(MouseEvent event) {
         currentAnimation.stop();
 
+    }
+    void startAnimation(String pokemonName) {
+        if (currentAnimation != null) {
+            currentAnimation.stop();
+        }
+        switch (pokemonName) {
+            case "Bulbasaur":
+                animateElement(bulbasaurImage, "Bulbasaur", "Bulbasaur", "planta", 3);
+                break;
+            case "Charmander":
+                animateElement(charmanderImage, "Charmander", "Charmander", "fuego", 4);
+                break;
+            case "Squirtle":
+                animateElement(squirtleImage, "Squirtle", "Squirtle", "agua", 4);
+                break;
+            case "Oddish":
+                animateElement(oddishImage, "Oddish", "Oddish", "planta", 5);
+                break;
+            case "Poliwag":
+                animateElement(poliwagImage, "Poliwag", "Poliwag", "agua", 4);
+                break;
+            case "Arcaine":
+                animateElement(arcaineImage, "Arcaine", "Arcaine", "fuego", 4);
+                break;
+            default:
+                break;
+        }
+    }
+    @FXML
+    void keySelectPokemon(KeyEvent event) {
+        String keyCode = event.getCode().toString();
+        Node node = (Node) event.getSource();
+        List<Node> childs = ((Pane) node).getChildren();
+
+        if(selectId < 0 || selectId >= childs.size()) {
+            selectId = 0;
+        }
+        
+        System.out.println(keyCode);
+        if(keyCode.equals("LEFT")) {
+            selectId--;
+            if(selectId < 0){
+                selectId = 0;
+            }
+            startAnimation(childs.get(selectId).getProperties().get("pokemonName").toString());
+            System.out.println(childs.get(selectId).getProperties().get("pokemonName"));
+        } else if(keyCode.equals("RIGHT")){
+            if(selectId < 5){
+                selectId++;
+            } else{
+                selectId = 5;
+            }
+            System.out.println(childs.get(selectId).getProperties().get("pokemonName"));
+            startAnimation(childs.get(selectId).getProperties().get("pokemonName").toString());
+        } else if(keyCode.equals("ENTER")) {
+            node = childs.get(selectId);
+            playerData currentUser = playerData.getInstance();
+            String selectedPokemon = (String) node.getProperties().get("pokemonName");
+            System.out.println(selectedPokemon);
+            switch (selectedPokemon) {
+                case "Bulbasaur":
+                    currentUser.setUserPokemon(new Bulbasaur());
+                    break;
+                case "Charmander":
+                    currentUser.setUserPokemon(new Charmander());
+                    break;
+                case "Squirtle":
+                    currentUser.setUserPokemon(new Squirtle());
+                    break;
+                case "Oddish":
+                    currentUser.setUserPokemon(new Oddish());
+                    break;
+                case "Poliwag":
+                    currentUser.setUserPokemon(new Poliwag());
+                    break;
+                case "Arcaine":
+                    currentUser.setUserPokemon(new Arcaine());
+                    break;
+                default:
+                    break;
+            }
+
+            clip.close();
+            String sceneName = (String) node.getProperties().get("goToPage");
+            try {
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                changeScene changer = new changeScene();
+                changer.goTo(sceneName, stage);
+            } catch (IOException e){
+                System.out.println(e);
+            }
+        }
     }
 }
