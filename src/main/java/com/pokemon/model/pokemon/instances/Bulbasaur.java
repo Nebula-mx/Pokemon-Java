@@ -1,8 +1,9 @@
 package com.pokemon.model.pokemon.instances;
 
+import com.pokemon.model.pokemon.abstractTypes.grass;
 import com.pokemon.model.pokemon.abstractTypesClasses.AbstractGrassPokemon;
 
-public class Bulbasaur extends AbstractGrassPokemon {
+public class Bulbasaur extends AbstractGrassPokemon implements grass {
     private int id = 10;
     public Bulbasaur() {
         super("Bulbasaur", "planta", new String[]{"Latigazo", "Drenadoras", "Hoja Afilada", "Placaje"});

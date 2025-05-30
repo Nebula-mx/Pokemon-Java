@@ -1,10 +1,7 @@
 package com.pokemon.model.pokemon.abstractTypesClasses;
 
-import com.pokemon.model.pokemon.abstractTypes.fire;
-
 public abstract class AbstractFirePokemon
-    extends AbstractPokemon
-    implements fire {
+    extends AbstractPokemon {
 
     public AbstractFirePokemon(String name, String type, String[] movements) {
         super(name, type, movements);
