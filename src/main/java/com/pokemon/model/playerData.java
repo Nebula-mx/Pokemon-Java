@@ -16,6 +16,15 @@ public class playerData {
     return instance;
   }
 
+  private int winCount = 0;
+
+public void incrementWinCount() {
+    winCount++;
+}
+
+public int getWinCount() {
+    return winCount;
+}
 
   public Boolean getIsUserAlife() {
     return isUserAlife;

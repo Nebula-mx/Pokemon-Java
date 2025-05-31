@@ -34,7 +34,6 @@ public abstract class AbstractPokemon {
         System.out.println(this.name + " ha subido al nivel " + this.level);
         checkEvolution();
     }
-
     public abstract int firstMovement();
     public abstract int secondMovement();
     public abstract int thirdMovement();
@@ -118,4 +117,8 @@ public abstract class AbstractPokemon {
     public String getNextEvolution() {
         return nextEvolution;
     }
+
+    public void setHealth(int i){
+        this.health = i;
+    };
 }

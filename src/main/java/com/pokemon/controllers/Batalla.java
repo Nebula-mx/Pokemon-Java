@@ -6,12 +6,14 @@ import com.pokemon.utils.getPokemonSpritesRoute;
 import com.pokemon.utils.generatePokemonInstance;
 import com.pokemon.model.pokemon.abstractTypesClasses.AbstractPokemon;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.util.List;
 import java.util.Objects;
@@ -140,21 +142,30 @@ public class Batalla {
     }
 
     private void handleMovements(int movementId) {
-        if (!currentPlayer.getIsUserAlife()) return;
+    if (!currentPlayer.getIsUserAlife()) return;
 
-        if (currentOwner == PLAYER_TURN) {
-            int damage = userPokemon.doMovement(movementId);
-            if (damage != -1) {
-                userPokemon.doDamage(oponentPokemon, movementId);
-                battleLog.setText("Has usado " + userPokemon.movements[movementId] + " contra " + oponentPokemon.getName());
-                System.out.println("Has hecho " + damage + " de daño al oponente.");
-            } else {
-                battleLog.setText("No pasa nada");
-            }
+    if (currentOwner == PLAYER_TURN) {
+        int damage = userPokemon.doMovement(movementId);
+        if (damage != -1) {
+            userPokemon.doDamage(oponentPokemon, movementId);
+            battleLog.setText("Has usado " + userPokemon.movements[movementId] + " contra " + oponentPokemon.getName());
+            System.out.println("Has hecho " + damage + " de daño al oponente.");
+
+            // 🔹 Forzar actualización de la vida del enemigo en la interfaz
+            Platform.runLater(() -> opponentHealth.setText("Vida: " + oponentPokemon.getHealth()));
 
             if (oponentPokemon.getHealth() <= 0) {
-                System.out.println("¡Has ganado la batalla!");
-                currentPlayer.setIsUserAlife(false);
+                battleLog.setText("¡Has derrotado a " + oponentPokemon.getName() + "! Nuevo enemigo aparece...");
+                loadNewOpponent();
+                userPokemon.setHealth(100);
+                oponentPokemon.setHealth(100);
+
+                // 🔹 Actualizar las barras de vida con la nueva batalla
+                Platform.runLater(() -> {
+                    playerHealth.setText("Vida: " + userPokemon.getHealth());
+                    opponentHealth.setText("Vida: " + oponentPokemon.getHealth());
+                });
+
                 return;
             }
 
@@ -162,36 +173,83 @@ public class Batalla {
             nextTurn();
         }
     }
+}
 
-    private void nextTurn() {
-        if (currentPlayer.getIsUserAlife() == false) {
-            System.out.println("El jugador no está vivo, no puede realizar movimientos.");
-            return;
-        } else if (oponentPokemon.getHealth() <= 0) {
-            System.out.println("El oponente ya ha sido derrotado.");
+private void loadNewOpponent() {
+    String newOpponentName = pokemonNames[getRandomPokemonIndex()]; // Obtener un nuevo Pokémon aleatorio
+    oponentPokemon = generatePokemonInstance.getInstance(newOpponentName);
+
+    String[] spritePathData = getPokemonSpritesRoute.getRoute(oponentPokemon.getName());
+    Image spriteImage = SpriteLoader.getSprites(
+        spritePathData[0], spritePathData[1], spritePathData[2],
+        Integer.parseInt(spritePathData[3])
+    ).get(0);
+
+    opponentSprite.setImage(spriteImage);
+    opponentName.setText(oponentPokemon.getName());
+}
+
+   private void nextTurn() {
+    if (!currentPlayer.getIsUserAlife()) return;
+
+    // 🔹 Si el enemigo ha sido derrotado, registrar victoria
+    if (oponentPokemon.getHealth() <= 0) {
+        currentPlayer.incrementWinCount(); // 🔹 Aumentar contador de victorias
+
+        if (currentPlayer.getWinCount() >= 2) { // 🔹 Si el jugador ha ganado 2 batallas, terminar el juego
+            battleLog.setText("¡Felicidades! Has ganado el torneo Pokémon.");
+            System.out.println("Juego terminado.");
+            Platform.runLater(() -> {
+                try {
+                    Stage stage = (Stage) battleLog.getScene().getWindow();
+                    stage.close(); // 🔹 Cierra la ventana de la batalla
+                } catch (Exception e) {
+                    System.out.println("Error al cerrar la ventana.");
+                }
+            });
             return;
         }
-        if (currentOwner == CPU_TURN) {
-            // Simular movimiento del CPU
-            int cpuMove = (int) (Math.random() * 4); // movimiento aleatorio
-            int damage = oponentPokemon.doMovement(cpuMove);
 
-            if (damage != -1) {
-                oponentPokemon.doDamage(userPokemon, cpuMove);
-                System.out.println("El CPU usó el movimiento " + cpuMove + " y causó " + damage + " de daño.");
-            } else {
-                System.out.println("El CPU falló su movimiento.");
-            }
+        battleLog.setText("¡Has derrotado a " + oponentPokemon.getName() + "! Un nuevo enemigo aparece...");
+        loadNewOpponent(); // Generar nuevo Pokémon
+        userPokemon.setHealth(100);
+        oponentPokemon.setHealth(100);
+
+        // 🔹 Asegurar que las barras de vida se refresquen
+        Platform.runLater(() -> {
+            playerHealth.setText("Vida: " + userPokemon.getHealth());
+            opponentHealth.setText("Vida: " + oponentPokemon.getHealth());
+            opponentName.setText(oponentPokemon.getName());
+        });
+
+        currentOwner = PLAYER_TURN; // 🔹 Reiniciar turno al jugador
+        return;
+    }
+
+    if (currentOwner == CPU_TURN) {
+        int cpuMove = (int) (Math.random() * 4);
+        if (cpuMove >= oponentPokemon.movements.length) cpuMove = 0;
+
+        int damage = oponentPokemon.doMovement(cpuMove);
+
+        if (damage != -1) {
+            oponentPokemon.doDamage(userPokemon, cpuMove);
+            battleLog.setText("El enemigo usó " + oponentPokemon.movements[cpuMove] + " contra ti");
+
+            Platform.runLater(() -> playerHealth.setText("Vida: " + userPokemon.getHealth()));
 
             if (userPokemon.getHealth() <= 0) {
-                System.out.println("Has perdido la batalla.");
+                battleLog.setText("Has perdido la batalla.");
                 currentPlayer.setIsUserAlife(false);
                 return;
             }
-
-            currentOwner = (damage == -1) ? CPU_TURN : PLAYER_TURN;
+        } else {
+            System.out.println("El CPU falló su movimiento.");
         }
+
+        currentOwner = PLAYER_TURN;
     }
+}
 
     // Botones de movimientos
     @FXML
