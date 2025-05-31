@@ -1,9 +1,7 @@
 package com.pokemon.model.pokemon.instances;
-
-import com.pokemon.model.pokemon.abstractTypes.water;
 import com.pokemon.model.pokemon.abstractTypesClasses.AbstractWaterPokemon;
 
-public class Squirtle extends AbstractWaterPokemon implements water{
+public class Squirtle extends AbstractWaterPokemon{
     private int id = 30;
     public Squirtle() {
         super("Squirtle", "agua", new String[]{"Pistola Agua", "Burbuja", "Cabezazo", "Refugio"});
@@ -11,43 +9,23 @@ public class Squirtle extends AbstractWaterPokemon implements water{
     }
 
     @Override
-    public int pistolaAgua() {
-        return 1;
-    }
-
-    @Override
-    public int hidrobomba() {
-        return 2;
-    }
-
-    @Override
-    public int rayoBurbuja() {
-        return 3;
-    }
-
-    @Override
-    public int surf() {
-        return 4;
-    }
-
-    @Override
     public int firstMovement() {
-        return pistolaAgua();
+          return 15;
     }
 
     @Override
-    public int seccondMovement() {
-        return hidrobomba();
+    public int secondMovement() {
+        return 20;
     }
 
     @Override
     public int thirdMovement() {
-        return rayoBurbuja();
+         return 10;
     }
 
     @Override
     public int fourthMovement() {
-        return surf();
+        return 15;
     }
 
     @Override

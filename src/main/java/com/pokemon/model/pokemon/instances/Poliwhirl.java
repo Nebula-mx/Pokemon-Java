@@ -1,23 +1,21 @@
 package com.pokemon.model.pokemon.instances;
+import com.pokemon.model.pokemon.abstractTypesClasses.AbstractWaterPokemon;
 
-import com.pokemon.model.pokemon.abstractTypesClasses.AbstractFirePokemon;
-
-public class Arcaine extends AbstractFirePokemon {
-    public Arcaine() {
-    super("Arcaine", "fuego", new String[]{"Lanzallamas", "Colmillo Ígneo", "Aullido", "Placaje"});
-        setEvolution("Growlithe", 5);
+public class Poliwhirl extends AbstractWaterPokemon {
+    public Poliwhirl() {
+    super("Poliwhirl", "agua", new String[]{"Pistola Agua", "Burbuja", "Hipnosis", "Ataque Rápido"});
     }
 
-    private int id = 21;
+    private int id = 31;
 
     @Override
     public int firstMovement() {
-        return 10;
+        return 20;
     }
 
     @Override
     public int secondMovement() {
-        return 15;
+        return 25;
     }
 
     @Override
@@ -27,11 +25,12 @@ public class Arcaine extends AbstractFirePokemon {
 
     @Override
     public int fourthMovement() {
-        return 15;
+        return 20;
     }
 
     @Override
     public void levelUp() {
         super.checkEvolution();
     }
+
 }

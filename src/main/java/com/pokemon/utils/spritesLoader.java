@@ -13,9 +13,10 @@ import java.util.List;
 public class spritesLoader {
     private static final int VELOCIDAD_MS = 100;
 
-    public List<Image> getSrites(String nombre, String nombreEspecifico, String tipo, int frames){
+    public List<Image> getSprites(String nombre, String nombreEspecifico, String tipo, int frames){
         List<Image> sprites = new ArrayList<>();
         String RUTA_FOTOGRAMAS = "/com/pokemon/media/pictures/sprites/" + tipo + "/" + nombre + "/sprite" + nombreEspecifico + "/" + nombreEspecifico;
+        System.out.println("Ruta de los fotogramas: " + RUTA_FOTOGRAMAS);
 
         for (int i = 1; i <= frames; i++) {
             String rutaImagen = RUTA_FOTOGRAMAS + i + ".png";

@@ -2,22 +2,21 @@ package com.pokemon.model.pokemon.instances;
 
 import com.pokemon.model.pokemon.abstractTypesClasses.AbstractFirePokemon;
 
-public class Arcaine extends AbstractFirePokemon {
-    public Arcaine() {
-    super("Arcaine", "fuego", new String[]{"Lanzallamas", "Colmillo Ígneo", "Aullido", "Placaje"});
-        setEvolution("Growlithe", 5);
+public class Growlithe extends AbstractFirePokemon {
+    public Growlithe() {
+    super("Growlithe", "fuego", new String[]{"Lanzallamas", "Colmillo Ígneo", "Aullido", "Placaje"});
     }
 
     private int id = 21;
 
     @Override
     public int firstMovement() {
-        return 10;
+        return 15;
     }
 
     @Override
     public int secondMovement() {
-        return 15;
+        return 20;
     }
 
     @Override
@@ -27,7 +26,7 @@ public class Arcaine extends AbstractFirePokemon {
 
     @Override
     public int fourthMovement() {
-        return 15;
+        return 20;
     }
 
     @Override

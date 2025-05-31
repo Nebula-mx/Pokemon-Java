@@ -15,7 +15,7 @@ app extends Application {
     //tambien se le da el titulo a la ventana y se carga la vista, no es necesario cambiar nada aqui.
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/com/pokemon/startView.fxml")); //define la ruta de la vista principal
-
+        
         Scene scene = new Scene(root, 1295, 969); //define la ventana y el contenido
         primaryStage.setTitle("Pokemon java edition"); //le da titulo a la ventana
         primaryStage.setResizable(false);

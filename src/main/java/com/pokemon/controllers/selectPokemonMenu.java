@@ -119,12 +119,12 @@ public class selectPokemonMenu {
                         "-fx-background-size: cover;"
         );
 
-        bulbasaurImage.setImage(SpriteLoader.getSrites("Bulbasaur", "Bulbasaur", "planta", 3).get(0));
-        charmanderImage.setImage(SpriteLoader.getSrites("Charmander", "Charmander", "fuego", 3).get(0));
-        oddishImage.setImage(SpriteLoader.getSrites("Oddish", "Oddish", "planta", 3).get(0));
-        poliwagImage.setImage(SpriteLoader.getSrites("Poliwag", "Poliwag", "agua", 3).get(0));
-        squirtleImage.setImage(SpriteLoader.getSrites("Squirtle", "Squirtle", "agua", 3).get(0));
-        arcaineImage.setImage(SpriteLoader.getSrites("Arcaine", "Arcaine", "fuego", 3).get(0));
+        bulbasaurImage.setImage(SpriteLoader.getSprites("Bulbasaur", "Bulbasaur", "planta", 3).get(0));
+        charmanderImage.setImage(SpriteLoader.getSprites("Charmander", "Charmander", "fuego", 3).get(0));
+        oddishImage.setImage(SpriteLoader.getSprites("Oddish", "Oddish", "planta", 3).get(0));
+        poliwagImage.setImage(SpriteLoader.getSprites("Poliwag", "Poliwag", "agua", 3).get(0));
+        squirtleImage.setImage(SpriteLoader.getSprites("Squirtle", "Squirtle", "agua", 3).get(0));
+        arcaineImage.setImage(SpriteLoader.getSprites("Arcaine", "Arcaine", "fuego", 3).get(0));
 
         startAnimation("Charmander");
     }
@@ -217,7 +217,7 @@ public class selectPokemonMenu {
                 animateElement(bulbasaurImage, "Bulbasaur", "Bulbasaur", "planta", 3);
                 break;
             case "Charmander":
-                animateElement(charmanderImage, "Charmander", "Charmander", "fuego", 4);
+                animateElement(charmanderImage, "charmander", "charmander", "fuego", 4);
                 break;
             case "Squirtle":
                 animateElement(squirtleImage, "Squirtle", "Squirtle", "agua", 4);

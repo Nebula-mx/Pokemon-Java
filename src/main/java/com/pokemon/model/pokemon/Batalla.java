@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import java.util.List;
+import java.util.Random;
 
 public class Batalla {
     private ImageView playerSprite;
@@ -17,21 +18,39 @@ public class Batalla {
     private Timeline idleAnimationCPU;
     private spritesLoader spriteLoader;
 
+    // Lista de Pokémon enemigos posibles
+    private final String[] enemyPokemonNames = {
+        "Bulbasaur", "Charmander", "Squirtle", "Oddish", "Poliwag", "Arcaine"
+    };
 
-    public Batalla(spritesLoader spriteLoader, String playerName, String cpuName, String type) {
+    public Batalla(spritesLoader spriteLoader, String playerName, String type) {
         this.spriteLoader = spriteLoader;
 
-        List<Image> playerImages = spriteLoader.getSrites(playerName, "idle", type, 1);
-        List<Image> cpuImages = spriteLoader.getSrites(cpuName, "idle", type, 1);
-
-        if (!playerImages.isEmpty() && !cpuImages.isEmpty()) {
+        //Pokémon del jugador
+        List<Image> playerImages = spriteLoader.getSprites(playerName, "idle", type, 1);
+        if (!playerImages.isEmpty()) {
             this.playerSprite = new ImageView(playerImages.get(0));
+        } else {
+            System.out.println("Error: No se pudo cargar el sprite del jugador.");
+        }
+
+        //Pokémon enemigo aleatorio
+        String randomEnemy = generateRandomEnemy();
+        List<Image> cpuImages = spriteLoader.getSprites(randomEnemy, "idle", type, 1);
+        if (!cpuImages.isEmpty()) {
             this.cpuSprite = new ImageView(cpuImages.get(0));
         } else {
-            System.out.println("Error: No se pudieron cargar los sprites.");
+            System.out.println("Error: No se pudo cargar el sprite del enemigo.");
         }
 
         startIdleAnimations();
+    }
+
+    //generar un Pokémon enemigo aleatorio
+    private String generateRandomEnemy() {
+        Random random = new Random();
+        int index = random.nextInt(enemyPokemonNames.length);
+        return enemyPokemonNames[index];
     }
 
     private void startIdleAnimations() {
@@ -77,7 +96,7 @@ public class Batalla {
 
     public void playEvolutionAnimation(String evolvedName, String type) {
         Platform.runLater(() -> {
-            List<Image> evolvedImages = spriteLoader.getSrites(evolvedName, "idle", type, 1);
+            List<Image> evolvedImages = spriteLoader.getSprites(evolvedName, "idle", type, 1);
             if (!evolvedImages.isEmpty()) {
                 playerSprite.setImage(evolvedImages.get(0));
             }
@@ -100,5 +119,4 @@ public class Batalla {
     public ImageView getCpuSprite() {
         return cpuSprite;
     }
-
 }

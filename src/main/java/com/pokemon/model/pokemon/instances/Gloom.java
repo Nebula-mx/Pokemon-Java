@@ -1,21 +1,21 @@
 package com.pokemon.model.pokemon.instances;
+
 import com.pokemon.model.pokemon.abstractTypesClasses.AbstractGrassPokemon;
 
-public class Oddish extends AbstractGrassPokemon {
+public class Gloom extends AbstractGrassPokemon {
   
-  public Oddish() {
-    super("Oddish", "planta", new String[]{"Absorber", "Paralizador", "Ácido", "Hoja afilada"});
-    setEvolution("Gloom", 5);
+  public Gloom() {
+    super("Gloom", "planta", new String[]{"Absorber", "Paralizador", "Ácido", "Hoja afilada"});
   }
   
   @Override
   public int firstMovement() {
-      return 15;
+      return 20;
   }
 
   @Override
   public int secondMovement() {
-      return 15;
+      return 20;
   }
 
   @Override
@@ -25,7 +25,7 @@ public class Oddish extends AbstractGrassPokemon {
 
   @Override
   public int fourthMovement() {
-      return 20;
+      return 25;
   }
 
   @Override

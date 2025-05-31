@@ -1,4 +1,5 @@
 package com.pokemon.model.pokemon.instances;
+
 import com.pokemon.model.pokemon.abstractTypesClasses.AbstractWaterPokemon;
 
 public class Poliwag extends AbstractWaterPokemon {
@@ -11,7 +12,7 @@ public class Poliwag extends AbstractWaterPokemon {
 
     @Override
     public int firstMovement() {
-        return 15;
+        return 40;
     }
 
     @Override
@@ -26,7 +27,7 @@ public class Poliwag extends AbstractWaterPokemon {
 
     @Override
     public int fourthMovement() {
-        return 15;
+        return 40;
     }
 
     @Override
