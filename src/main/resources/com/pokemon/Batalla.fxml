@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/23.0.1"
+<AnchorPane xmlns="http://javafx.com/javafx/13.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.pokemon.controllers.Batalla">
 
@@ -19,27 +19,30 @@
     <Text fx:id="battleLog" layoutX="50" layoutY="50" wrappingWidth="600" />
 
     <!-- Contenedor para los poderes -->
-    <HBox fx:id="playerDataContainer" layoutX="0" layoutY="150" prefWidth="1295.0" alignment="CENTER">
+    <HBox fx:id="playerDataContainer" layoutX="0" layoutY="150" prefWidth="1295.0">
         <Label style="-fx-font-size: 32px;" text="Charmander" textFill="#f8f8f8" />
     </HBox>
 
     <!-- Contenedor de pokemones dividido en dos mitades -->
     <HBox fx:id="pokemonsContainer" layoutX="0" layoutY="205.0" prefWidth="1295.0" prefHeight="418.0" spacing="0">
+        
         <!-- Contenedor izquierdo -->
-        <VBox alignment="CENTER" prefWidth="647.5" prefHeight="418.0" spacing="20">
+        <VBox fx:id="leftContainer" prefWidth="647.5" prefHeight="418.0" spacing="20">
             <ImageView fx:id="playerSprite" fitHeight="96" fitWidth="96" preserveRatio="true" />
             <Text fx:id="playerName" text="Jugador 1" style="-fx-font-size: 20px; -fx-fill: white;" />
+            <Text fx:id="playerHealth" text="Vida: 100" style="-fx-font-size: 16px; -fx-fill: white;" />
         </VBox>
 
         <!-- Contenedor derecho -->
-        <VBox alignment="CENTER" prefWidth="647.5" prefHeight="418.0" spacing="20">
+        <VBox fx:id="rightContainer" prefWidth="647.5" prefHeight="418.0" spacing="20">
             <ImageView fx:id="opponentSprite" fitHeight="96" fitWidth="96" preserveRatio="true" />
             <Text fx:id="opponentName" text="Jugador 2" style="-fx-font-size: 20px; -fx-fill: white;" />
+            <Text fx:id="opponentHealth" text="Vida: 100" style="-fx-font-size: 16px; -fx-fill: white;" />
         </VBox>
     </HBox>
 
     <!-- Contenedor de botones de movimiento -->
-    <HBox fx:id="buttonContainer" layoutX="0" layoutY="750" prefWidth="1295.0" alignment="CENTER" spacing="100">
+    <HBox fx:id="buttonContainer" layoutX="0" layoutY="750" prefWidth="1295.0" spacing="100">
         <Button fx:id="firstMovement" onAction="#handleFirstMove"
                 style="-fx-font-size: 20px; -fx-pref-width: 150px; -fx-pref-height: 50px;" text="Movimiento 1" />
         <Button fx:id="secondMovement" onAction="#handleSecondMove"

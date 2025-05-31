@@ -21,6 +21,7 @@ public class Batalla {
     private AbstractPokemon userPokemon;
     private AbstractPokemon oponentPokemon;
     private spritesLoader SpriteLoader = new spritesLoader();
+    private boolean gameRunning = true;
 
     private static final int PLAYER_TURN = 0;
     private static final int CPU_TURN = 1;
@@ -45,7 +46,7 @@ public class Batalla {
     };
 
     @FXML
-    private Text opponentName;
+    private Text opponentName, battleLog, playerHealth, opponentHealth;
 
     @FXML
     private ImageView opponentSprite;
@@ -91,6 +92,12 @@ public class Batalla {
 
         setRandomBackground();
         loadOpponent();
+        playerName.setText(currentPlayer.getUserName());
+        playerHealth.setText("Vida: " + userPokemon.getHealth());
+        opponentName.setText(oponentPokemon.getName());
+        opponentHealth.setText("Vida: " + oponentPokemon.getHealth());
+        battleLog.setText("¡La batalla ha comenzado!");
+
     }
 
     private void setRandomBackground() {
@@ -139,10 +146,10 @@ public class Batalla {
             int damage = userPokemon.doMovement(movementId);
             if (damage != -1) {
                 userPokemon.doDamage(oponentPokemon, movementId);
-                
+                battleLog.setText("Has usado " + userPokemon.movements[movementId] + " contra " + oponentPokemon.getName());
                 System.out.println("Has hecho " + damage + " de daño al oponente.");
             } else {
-                System.out.println("¡Fallaste! Pierdes tu turno.");
+                battleLog.setText("No pasa nada");
             }
 
             if (oponentPokemon.getHealth() <= 0) {
